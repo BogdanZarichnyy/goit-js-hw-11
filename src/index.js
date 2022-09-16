@@ -227,6 +227,7 @@ const initData = async event => {
         const { hits, total, totalHits } = response.data;
         console.log(hits)
         console.log('total:', total, '; totalHits:', totalHits);
+        Notify.info(`total: ${total}; totalHits: ${totalHits}`);
 
         itemsResidual = totalHits % pixabayAPI.per_page;
 
@@ -249,8 +250,8 @@ const initData = async event => {
             console.log(`Get your results: page №${pixabayAPI.page}`);
             Notify.success(`Get your results: page №${pixabayAPI.page}`);
 
-            console.log('Hooray! We found totalHits images.');
-            Notify.success('Hooray! We found totalHits images.');
+            console.log(`Hooray! We found ${totalHits} images.`);
+            Notify.success(`Hooray! We found ${totalHits} images.`);
         }
 
         listGalleryContent.innerHTML = templateContentList(hits);
